@@ -1,5 +1,8 @@
-FROM alpine:3.18
-
+FROM scratch
+ARG TARGETARCH
+# Add rootfs
+ADD alpine-minirootfs-3.18.4-$TARGETARCH.tar.gz /
+# Install tftp-hpa
 RUN apk --no-cache update \
 && apk upgrade \
 && apk add tftp-hpa \
